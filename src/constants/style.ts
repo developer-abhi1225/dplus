@@ -1,3 +1,3 @@
 export enum styleConstants {
-  NAV_BAR_HEIGHT = 120,
+  NAV_BAR_HEIGHT = 100,
 }

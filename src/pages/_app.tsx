@@ -28,7 +28,5 @@ export default function App({ Component, pageProps }: AppProps) {
 
 const ComponentContainer = styled("div")(({ theme }) => ({
   fontFamily: interFont.style.fontFamily,
-  paddingTop: styleConstants.NAV_BAR_HEIGHT + 20,
-  paddingRight: 30,
-  paddingLeft: 30,
+  paddingTop: styleConstants.NAV_BAR_HEIGHT,
 }));

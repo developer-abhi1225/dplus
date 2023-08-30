@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import whiteLogo from "../../../public/logo-white.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuDrawer from "./menuDrawer";
+import { styleConstants } from "@/constants/style";
 
 const NavToolbar = styled(Toolbar)({
   width: "inherit",
@@ -18,6 +19,8 @@ const Navbar = styled(AppBar)(({ theme }) => ({
   padding: "20px 20px", // Adjust padding as needed
   zIndex: theme.zIndex.drawer + 1,
   position: "fixed",
+  height: styleConstants.NAV_BAR_HEIGHT,
+  maxHeight: styleConstants.NAV_BAR_HEIGHT,
 }));
 
 const Logo = styled(Image)({
@@ -30,11 +33,14 @@ const Menu = styled("div")({
   alignItems: "center",
 });
 
-const MenuItem = styled(Typography)({
+const MenuItem = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    width: "150px", // Set a fixed width for larger screens
+  },
   width: "300px",
-  marginLeft: "20px", // Space between menu items
+  marginLeft: "5%", // Space between menu items
   cursor: "pointer",
-});
+}));
 
 const FillSpace = styled("div")({
   flex: 1, // Fill the remaining space
@@ -45,7 +51,7 @@ const MyNavbar = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
     <>
