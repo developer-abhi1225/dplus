@@ -5,7 +5,8 @@ import { AppBar, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import whiteLogo from "../../../public/logo-white.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuDrawer from "./menuDrawer";
-import { styleConstants } from "@/constants/style";
+import { logoTypes, styleConstants } from "@/constants/style";
+import { Logo } from "./logo";
 
 const NavToolbar = styled(Toolbar)({
   width: "inherit",
@@ -23,18 +24,13 @@ const Navbar = styled(AppBar)(({ theme }) => ({
   maxHeight: styleConstants.NAV_BAR_HEIGHT,
 }));
 
-const Logo = styled(Image)({
-  width: "100px", // Set your logo width
-  height: "auto", // Auto height to maintain aspect ratio
-});
-
 const Menu = styled("div")({
   display: "flex",
   alignItems: "center",
 });
 
 const MenuItem = styled(Typography)(({ theme }) => ({
-  [theme.breakpoints.down("lg")]: {
+  [theme.breakpoints.down("xl")]: {
     width: "150px", // Set a fixed width for larger screens
   },
   width: "300px",
@@ -51,18 +47,15 @@ const MyNavbar = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery((theme: any) =>
+    theme.breakpoints.down("md")
+  );
 
   return (
     <>
       <Navbar position="static">
         <NavToolbar>
-          <Logo
-            src={whiteLogo} // Replace with your logo image path
-            alt="Logo"
-            width={100}
-            height={50}
-          />
+          <Logo type={logoTypes.WHITE} />
           <FillSpace />
           {!isSmallScreen && (
             <Menu>

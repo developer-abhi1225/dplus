@@ -3,6 +3,12 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import whiteLogo from "../../../public/logo-white.png";
+import blackLogo from "../../../public/logo-black.png";
+import { logoTypes } from "@/constants/style";
+
+interface IProps {
+  type: logoTypes;
+}
 
 const LogoComponent = styled("div")(({ theme }) => ({
   maxWidth: "100%",
@@ -11,19 +17,17 @@ const LogoComponent = styled("div")(({ theme }) => ({
   height: "auto",
 }));
 
-const Logo = (props: any) => {
+const StyledImage = styled(Image)({
+  width: "100px", // Set your logo width
+  height: "auto", // Auto height to maintain aspect ratio
+});
+
+export const Logo = (props: IProps) => {
   const router = useRouter();
+  const logo = props?.type === logoTypes.WHITE ? whiteLogo : blackLogo;
   return (
     <LogoComponent {...props} onClick={() => router.push("/")}>
-      <Image
-        width={200}
-        height={70}
-        src={whiteLogo}
-        alt={"Dplus"}
-        layout="intrinsic"
-      />
+      <StyledImage src={logo} alt="dplus" width={100} height={50} />
     </LogoComponent>
   );
 };
-
-export default Logo;

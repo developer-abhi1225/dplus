@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar/index";
 import Theme from "@/components/Theme";
 import { interFont } from "@/constants/fonts";
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ComponentContainer>
           <Component {...pageProps} />
         </ComponentContainer>
+        <Footer />
       </Theme>
     </>
   );
