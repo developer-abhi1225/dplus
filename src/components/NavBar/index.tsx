@@ -7,6 +7,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuDrawer from "./menuDrawer";
 import { logoTypes, styleConstants } from "@/constants/style";
 import { Logo } from "./logo";
+import { useRouter } from "next/router";
+import { IMenu, menu } from "./data";
 
 const NavToolbar = styled(Toolbar)({
   width: "inherit",
@@ -50,6 +52,10 @@ const MyNavbar = () => {
   const isSmallScreen = useMediaQuery((theme: any) =>
     theme.breakpoints.down("md")
   );
+  const router = useRouter();
+  const redirect = (route: string) => {
+    router.push(route);
+  };
 
   return (
     <>
@@ -59,10 +65,17 @@ const MyNavbar = () => {
           <FillSpace />
           {!isSmallScreen && (
             <Menu>
-              <MenuItem variant="body1">Work</MenuItem>
-              <MenuItem variant="body1">Services</MenuItem>
-              <MenuItem variant="body1">About Us</MenuItem>
-              <MenuItem variant="body1">Contact Us</MenuItem>
+              {menu.map((menuItem: IMenu) => {
+                return (
+                  <MenuItem
+                    onClick={(e) => redirect(menuItem?.route)}
+                    key={menuItem?.key}
+                    variant="body1"
+                  >
+                    {menuItem?.label}
+                  </MenuItem>
+                );
+              })}
             </Menu>
           )}
           {isSmallScreen && (

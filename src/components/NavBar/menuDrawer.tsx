@@ -2,6 +2,8 @@ import { styled } from "@mui/material/styles";
 import { Drawer, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { styleConstants } from "@/constants/style";
+import { useRouter } from "next/router";
+import { menu, IMenu } from "./data";
 interface IProps {
   visible: boolean;
   hide: Function;
@@ -25,6 +27,10 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 }));
 
 const MenuDrawer = (props: IProps) => {
+  const router = useRouter();
+  const redirect = (route: string) => {
+    router.push(route);
+  };
   return (
     <StyledDrawer
       anchor="right"
@@ -32,10 +38,17 @@ const MenuDrawer = (props: IProps) => {
       onClose={(e) => props?.hide()}
     >
       <StyledBox>
-        <Typography variant="h2">Work</Typography>
-        <Typography variant="h2">Services</Typography>
-        <Typography variant="h2">About Us</Typography>
-        <Typography variant="h2">Contact Us</Typography>
+        {menu.map((menuItem: IMenu) => {
+          return (
+            <Typography
+              onClick={(e) => redirect(menuItem?.route)}
+              key={menuItem?.key}
+              variant="h2"
+            >
+              {menuItem?.label}
+            </Typography>
+          );
+        })}
       </StyledBox>
     </StyledDrawer>
   );
