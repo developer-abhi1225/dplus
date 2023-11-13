@@ -7,6 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import Link from "next/link";
 
 const FooterContent = styled("div")(({ theme }) => ({
   color: theme.palette.primary.contrastText,
@@ -59,21 +60,30 @@ const Footer = () => {
           <Typography variant="body1">+91 7058611590</Typography>
           <SocialMedia>
             <Typography variant="body1">Follow us on</Typography>
-            <IconContainer>
+            {/* <IconContainer>
               <FacebookRoundedIcon />
-            </IconContainer>
-            <IconContainer>
-              <InstagramIcon />
-            </IconContainer>
-            <IconContainer>
-              <WhatsAppIcon />
-            </IconContainer>
-            <IconContainer>
-              <LinkedInIcon />
-            </IconContainer>
-            <IconContainer>
+            </IconContainer> */}
+            <Link target="_blank" href={"https://www.instagram.com/thedplus/"}>
+              <IconContainer>
+                <InstagramIcon />
+              </IconContainer>
+            </Link>
+            <Link href={"https://wa.me/917058611590"}>
+              <IconContainer>
+                <WhatsAppIcon />
+              </IconContainer>
+            </Link>
+            <Link
+              target="_blank"
+              href={"https://www.linkedin.com/in/dplus-design-studio/"}
+            >
+              <IconContainer>
+                <LinkedInIcon />
+              </IconContainer>
+            </Link>
+            {/* <IconContainer>
               <YouTubeIcon />
-            </IconContainer>
+            </IconContainer> */}
           </SocialMedia>
         </FooterContent>
       </Circle>

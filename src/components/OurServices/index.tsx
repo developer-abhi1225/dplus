@@ -1,13 +1,9 @@
 import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ourWork from "../../../public/our-work.png";
 import Image from "next/image";
+import { data } from "./data";
+import { useRouter } from "next/router";
 
-const data = [
-  { image: ourWork, title: "Brand Development" },
-  { image: ourWork, title: "Social Media Marketing" },
-  { image: ourWork, title: "IT Services" },
-];
 export default function OurServices() {
   const StyledImage = styled(Image)(({ theme }) => ({
     width: "100%",
@@ -60,6 +56,7 @@ export default function OurServices() {
     marginTop: "5%",
   }));
 
+  const router = useRouter();
   return (
     <>
       <StyledWrapper>
@@ -71,7 +68,8 @@ export default function OurServices() {
             alignItems: "center",
             width: "100%",
             padding: "0 5%",
-          }}>
+          }}
+        >
           {data.map((item, index) => (
             <>
               <StyledCard>
@@ -82,14 +80,17 @@ export default function OurServices() {
                     fontWeight: 600,
                     textAlign: "center",
                     fontSize: "16px",
-                  }}>
+                  }}
+                >
                   {item.title}
                 </Typography>
               </StyledCard>
             </>
           ))}
         </Box>
-        <StyledButton>Explore</StyledButton>
+        <StyledButton onClick={(e) => router.push("/work")}>
+          Explore
+        </StyledButton>
       </StyledWrapper>
     </>
   );

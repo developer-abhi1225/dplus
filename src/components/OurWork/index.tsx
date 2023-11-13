@@ -17,10 +17,7 @@ export default function OurWork() {
       <StyledWrapper>
         {works.map((item) => {
           return (
-            <StyledCardWrapper
-              onClick={(e) => router.push(`/work/${item?.key}`)}
-              key={item?.key}
-            >
+            <StyledCardWrapper key={item?.key}>
               <StyledImage src={item?.thumbnail} alt="work" />
               <StyledDescriptionWrapper>
                 <StyledCardTitle>{item?.title} | </StyledCardTitle>
@@ -36,7 +33,7 @@ export default function OurWork() {
 
 const StyledImage = styled(Image)(({ theme }) => ({
   width: "440px",
-  height: "auto",
+  height: "440px",
   [theme.breakpoints.down("md")]: {
     width: "300px",
   },
@@ -74,8 +71,11 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const StyledDescriptionWrapper = styled(Box)({
+  paddingTop: "10px",
   display: "flex",
   alignContent: "center",
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 const StyledCardTitle = styled(Typography)({
