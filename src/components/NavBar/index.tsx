@@ -19,7 +19,7 @@ const Navbar = styled(AppBar)(({ theme }) => ({
   backgroundColor: "#000", // Set your desired background color
   display: "flex",
   justifyContent: "space-between",
-  padding: "20px 20px", // Adjust padding as needed
+  padding: "10px 20px", // Adjust padding as needed
   zIndex: theme.zIndex.drawer + 1,
   position: "fixed",
   height: styleConstants.NAV_BAR_HEIGHT,
