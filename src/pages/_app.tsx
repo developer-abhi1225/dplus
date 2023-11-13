@@ -7,6 +7,7 @@ import "@/styles/globals.css";
 import { styled } from "@mui/system";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

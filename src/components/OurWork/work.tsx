@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { IWork, works } from "./data";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { styleConstants } from "@/constants/style";
+import { Carousel } from "react-responsive-carousel";
 
 export default function Work() {
   const router = useRouter();
@@ -21,11 +22,36 @@ export default function Work() {
         <div>{_w?.brandLine}</div>
         <BrandImage src={_w?.brandLogo} alt="" />
         {_w?.work?.map((item) => {
+          const _s = typeof item?.image === typeof "string";
           return (
             <WorkContainer key={item?.key}>
-              <div>{item?.title}</div>
-              <div>{item?.description}</div>
-              <Image src={item?.image} alt="" />
+              <Typography variant="h3">{item?.title}</Typography>
+              <Box display={"flex"} flexDirection={"row"}>
+                <div>{item?.description}</div>
+                {_s && (
+                  <Image src={item?.image} width={400} height={500} alt="" />
+                )}
+                {!_s && (
+                  <Carousel
+                    autoPlay={true}
+                    showStatus={false}
+                    showArrows={false}
+                  >
+                    <Image
+                      src={item?.image[0]}
+                      width={800}
+                      height={500}
+                      alt=""
+                    />
+                    <Image
+                      src={item?.image[1]}
+                      width={800}
+                      height={500}
+                      alt=""
+                    />
+                  </Carousel>
+                )}
+              </Box>
             </WorkContainer>
           );
         })}
@@ -70,7 +96,7 @@ const BrandImage = styled(Image)(({ theme }) => ({
 }));
 
 const BannerImage = styled(Image)(({ theme }) => ({
-  width: "100%",
+  width: "auto",
   height: `calc(100vh - ${styleConstants.NAV_BAR_HEIGHT}px)`,
 }));
 
