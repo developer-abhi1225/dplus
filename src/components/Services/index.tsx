@@ -19,24 +19,14 @@ const DESIGN_SERVICES_DATA = [
       "We create eye-catching and effective packaging designs that not only protect your products but also make them stand out on the shelves, leaving a lasting impression on your customers.",
   },
   {
-    title: "Web Design and Development",
+    title: "Web Design",
     description:
       "Our skilled team crafts visually stunning and user-friendly websites that not only capture attention but also drive conversions. We prioritize seamless functionality and responsive design for optimal user experience.",
-  },
-  {
-    title: "Digital Marketing",
-    description:
-      "We formulate comprehensive digital marketing strategies tailored to your business objectives. From search engine optimization (SEO) to social media management, we maximize your online visibility and generate quality leads.",
   },
   {
     title: "Content Creation",
     description:
       "Our skilled copywriters have a way with words. From crafting persuasive ad copies to writing engaging website content, blog posts, and social media captions, we know how to captivate your audience and leave a lasting impression. We understand the importance of compelling storytelling and employ the right tone and style to convey your brand's message effectively.",
-  },
-  {
-    title: "Advertising Campaigns",
-    description:
-      "We design and execute targeted advertising campaigns to reach your desired audience. Through careful planning and optimization, we maximize your return on investment (ROI) and drive customer engagement.",
   },
   {
     title: "Social Media Management",
@@ -56,68 +46,21 @@ const IT_SERVICES_DATA = [
     description:
       "User experience is at the core of our design philosophy. Our skilled UI/UX designers create visually appealing interfaces that are intuitive, easy to navigate, and optimized for conversions. By blending aesthetics with usability, we ensure that your digital products provide an engaging and delightful experience to your target audience.",
   },
-  {
-    title: "UI/UX Design",
-    description:
-      "User experience is at the core of our design philosophy. Our skilled UI/UX designers create visually appealing interfaces that are intuitive, easy to navigate, and optimized for conversions. By blending aesthetics with usability, we ensure that your digital products provide an engaging and delightful experience to your target audience.",
-  },
 ];
 export default function Services() {
   const [isSelectedButton, setIsSelectedButton] =
     React.useState("designServices");
-
-  const StyledHeaderWrapper = styled(Box)(({ theme }) => ({
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "5% 5% 0 5%",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-      alignItems: "start",
-    },
-  }));
-
-  const StyledTitle = styled(Typography)(({ theme }) => ({
-    color: "#000000",
-    fontSize: "90px",
-    fontWeight: 600,
-    lineHeight: "90px",
-    marginRight: "10%",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "40px",
-      lineHeight: "45px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: "5%",
-    },
-  }));
-
-  const StyledDescription = styled(Typography)(({ theme }) => ({
-    color: "#000000",
-    fontSize: "20px",
-    fontWeight: 600,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "16px",
-    },
-  }));
-
-  const StyledButtonWrapper = styled(Box)(({ theme }) => ({
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: "5%",
-  }));
-
   const StyledDesignServicedButton = styled(Button)(({ theme }) => ({
     background: isSelectedButton === "designServices" ? "white" : "#000000",
     color: isSelectedButton === "designServices" ? "#000000" : "white",
     width: "50%",
     borderRadius: "0",
     textTransform: "initial",
-    fontWeight: 600,
+    fontWeight: 800,
+    fontSize: "24px",
     "&:hover": {
-      background: "#000000",
-      color: "white",
+      background: isSelectedButton === "designServices" ? "white" : "#000000",
+      color: isSelectedButton === "designServices" ? "#000000" : "white",
     },
   }));
 
@@ -127,42 +70,13 @@ export default function Services() {
     width: "50%",
     borderRadius: "0",
     textTransform: "initial",
-    fontWeight: 600,
-
+    fontWeight: 800,
+    fontSize: "24px",
     "&:hover": {
-      background: "#000000",
-      color: "white",
+      background: isSelectedButton === "itServices" ? "white" : "#000000",
+      color: isSelectedButton === "itServices" ? "#000000" : "white",
     },
   }));
-
-  const StyledServicesDescriptionWrapper = styled(Box)(({ theme }) => ({
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    margin: "5% 5% 5% 5%",
-  }));
-
-  const StyledServicesTitle = styled(Typography)(({ theme }) => ({
-    color: "#000000",
-    fontSize: "45px",
-    fontWeight: 600,
-    textTransform: "initial",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "30px",
-    },
-  }));
-
-  const StyledServiceDescription = styled(Typography)(({ theme }) => ({
-    color: "#000000",
-    fontSize: "20px",
-    fontWeight: 500,
-    textTransform: "initial",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "16px",
-    },
-  }));
-
   return (
     <>
       <StyledHeaderWrapper>
@@ -176,17 +90,19 @@ export default function Services() {
           innovative ad agency specializing in creating captivating content and
           delivering effective solutions for businesses of all sizes. With our
           expertise and creative flair, we help our clients achieve their
-          marketing goals and enhance their online presence. Here's what we
+          marketing goals and enhance their online presence. Here&apos;s what we
           offer:
         </StyledDescription>
       </StyledHeaderWrapper>
       <StyledButtonWrapper>
         <StyledDesignServicedButton
-          onClick={() => setIsSelectedButton("designServices")}>
+          onClick={() => setIsSelectedButton("designServices")}
+        >
           Design Services
         </StyledDesignServicedButton>
         <StyledItServicesButton
-          onClick={() => setIsSelectedButton("itServices")}>
+          onClick={() => setIsSelectedButton("itServices")}
+        >
           IT Services
         </StyledItServicesButton>
       </StyledButtonWrapper>
@@ -195,24 +111,28 @@ export default function Services() {
         {isSelectedButton === "designServices" && (
           <>
             {DESIGN_SERVICES_DATA.map((item, index) => (
-              <Box key={index}>
-                <StyledServicesTitle>{item.title}</StyledServicesTitle>
-                <StyledServiceDescription>
-                  {item.description}
-                </StyledServiceDescription>
-              </Box>
+              <StyledDataBox key={index}>
+                <Box>
+                  <StyledServicesTitle>{item.title}</StyledServicesTitle>
+                  <StyledServiceDescription>
+                    {item.description}
+                  </StyledServiceDescription>
+                </Box>
+              </StyledDataBox>
             ))}
           </>
         )}
         {isSelectedButton === "itServices" && (
           <>
             {IT_SERVICES_DATA.map((item, index) => (
-              <Box key={index}>
-                <StyledServicesTitle>{item.title}</StyledServicesTitle>
-                <StyledServiceDescription>
-                  {item.description}
-                </StyledServiceDescription>
-              </Box>
+              <StyledDataBox key={index}>
+                <Box key={index}>
+                  <StyledServicesTitle>{item.title}</StyledServicesTitle>
+                  <StyledServiceDescription>
+                    {item.description}
+                  </StyledServiceDescription>
+                </Box>
+              </StyledDataBox>
             ))}
           </>
         )}
@@ -220,3 +140,80 @@ export default function Services() {
     </>
   );
 }
+
+const StyledHeaderWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  margin: "5% 5% 0 5%",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "start",
+  },
+}));
+
+const StyledTitle = styled(Typography)(({ theme }) => ({
+  color: "#000000",
+  fontSize: "90px",
+  fontWeight: 600,
+  lineHeight: "90px",
+  marginRight: "10%",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "40px",
+    lineHeight: "45px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "5%",
+  },
+}));
+
+const StyledDescription = styled(Typography)(({ theme }) => ({
+  color: "#000000",
+  fontSize: "20px",
+  fontWeight: 600,
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "16px",
+  },
+}));
+
+const StyledButtonWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  marginTop: "5%",
+  fontSize: "15px",
+}));
+
+const StyledServicesDescriptionWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItems: "flex-start",
+  margin: "5% 5% 5% 5%",
+}));
+
+const StyledServicesTitle = styled(Typography)(({ theme }) => ({
+  color: "#000000",
+  fontSize: "45px",
+  fontWeight: 600,
+  textTransform: "initial",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "30px",
+  },
+}));
+
+const StyledServiceDescription = styled(Typography)(({ theme }) => ({
+  color: "#000000",
+  fontSize: "20px",
+  fontWeight: 500,
+  textTransform: "initial",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "16px",
+  },
+}));
+
+const StyledDataBox = styled(Box)(({ theme }) => ({
+  "& > *": {
+    margin: "2% 0%",
+  },
+}));
