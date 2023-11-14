@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { IWork, works } from "./data";
-import Image from "next/image";
+// import Image from "next/image";
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 import { styleConstants } from "@/constants/style";
@@ -29,7 +29,7 @@ export default function Work() {
               <Box display={"flex"} flexDirection={"row"}>
                 <div>{item?.description}</div>
                 {_s && (
-                  <Image src={item?.image} width={400} height={500} alt="" />
+                  <img src={item?.image} width={400} height={500} alt="" />
                 )}
                 {!_s && (
                   <Carousel
@@ -37,18 +37,17 @@ export default function Work() {
                     showStatus={false}
                     showArrows={false}
                   >
-                    <Image
-                      src={item?.image[0]}
-                      width={800}
-                      height={500}
-                      alt=""
-                    />
-                    <Image
-                      src={item?.image[1]}
-                      width={800}
-                      height={500}
-                      alt=""
-                    />
+                    {item?.image?.map((imageItem: string, index: number) => (
+                      <img
+                        key={`${item?.key}_carousel_${index}`}
+                        src={imageItem}
+                        width={800}
+                        height={500}
+                        alt=""
+                      />
+                    ))}
+
+                    <img src={item?.image[1]} width={800} height={500} alt="" />
                   </Carousel>
                 )}
               </Box>
@@ -65,7 +64,7 @@ export default function Work() {
     </>
   );
 }
-const StyledImage = styled(Image)(({ theme }) => ({
+const StyledImage = styled("img")(({ theme }) => ({
   width: "440px",
   height: "auto",
   [theme.breakpoints.down("md")]: {
@@ -90,12 +89,12 @@ const ProjectsContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const BrandImage = styled(Image)(({ theme }) => ({
+const BrandImage = styled("img")(({ theme }) => ({
   width: "100%",
   height: `auto`,
 }));
 
-const BannerImage = styled(Image)(({ theme }) => ({
+const BannerImage = styled("img")(({ theme }) => ({
   width: "auto",
   height: `calc(100vh - ${styleConstants.NAV_BAR_HEIGHT}px)`,
 }));

@@ -1,11 +1,11 @@
 import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
+// import Image from "next/image";
 import { data } from "./data";
 import { useRouter } from "next/router";
 
 export default function OurServices() {
-  const StyledImage = styled(Image)(({ theme }) => ({
+  const StyledImage = styled("img")(({ theme }) => ({
     width: "100%",
     height: "100%",
     borderRadius: "15px",

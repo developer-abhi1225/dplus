@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import aboutUsImg from "../../../public/about-us.png";
+// import aboutUsImg from "../../../public/about-us.png";
+const aboutUsImg = "/about-us.png";
 import Image from "next/image";
 
 const ABOUTUS_TEXT =
@@ -9,7 +10,7 @@ const ABOUTUS_TEXT =
 export default function AboutUs(props: any) {
   const { pageName = "aboutUs" } = props;
 
-  const StyledImage = styled(Image)(({ theme }) => ({
+  const StyledImage = styled("img")(({ theme }) => ({
     width: "400px", // Set your logo width
     height: "auto", // Auto height to maintain aspect ratio
     [theme.breakpoints.down("md")]: {

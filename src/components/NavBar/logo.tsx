@@ -1,11 +1,11 @@
 import { styled } from "@mui/system";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import whiteLogo from "../../../public/logo-white.png";
-import blackLogo from "../../../public/logo-black.png";
+// import whiteLogo from "../../../public/logo-white.png";
+// import blackLogo from "../../../public/logo-black.png";
 import { logoTypes } from "@/constants/style";
-
+const whiteLogo = "/logo-white.png";
+const blackLogo = "/logo-black.png";
 interface IProps {
   type: logoTypes;
 }
@@ -17,7 +17,7 @@ const LogoComponent = styled("div")(({ theme }) => ({
   height: "auto",
 }));
 
-const StyledImage = styled(Image)({
+const StyledImage = styled("img")({
   width: "100px", // Set your logo width
   height: "auto", // Auto height to maintain aspect ratio
 });

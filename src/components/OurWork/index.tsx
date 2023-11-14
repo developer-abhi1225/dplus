@@ -31,7 +31,7 @@ export default function OurWork() {
   );
 }
 
-const StyledImage = styled(Image)(({ theme }) => ({
+const StyledImage = styled("img")(({ theme }) => ({
   width: "440px",
   height: "440px",
   [theme.breakpoints.down("md")]: {
