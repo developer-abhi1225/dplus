@@ -37,7 +37,7 @@ export default function Collab() {
       {
         <StyledWrapper>
           <StyledTitle>
-            Let's <br />
+            Let&apos;s <br />
             Collab
           </StyledTitle>
           <Box>
