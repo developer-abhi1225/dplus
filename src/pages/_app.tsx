@@ -1,3 +1,4 @@
+import { PageContainer } from "@/components/Common/pageContainer";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar/index";
 import Theme from "@/components/Theme";
@@ -21,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Theme>
         <NavBar />
         <ComponentContainer>
-          <Component {...pageProps} />
+          <PageContainer>
+            <Component {...pageProps} />
+          </PageContainer>
         </ComponentContainer>
         <Footer />
       </Theme>

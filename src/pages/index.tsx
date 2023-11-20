@@ -1,6 +1,6 @@
 import { styleConstants } from "@/constants/style";
 import { styled } from "@mui/material/styles";
-import AboutUs from "./about-us";
+import AboutUs from "@/components/AboutUs/";
 import OurServices from "@/components/OurServices";
 import Collab from "@/components/Collab";
 
@@ -13,11 +13,11 @@ const StyledVideo = styled("video")({
 export default function Home() {
   return (
     <>
-      <StyledVideo controls loop autoPlay>
+      {/* <StyledVideo controls loop autoPlay>
         <source src="/Testimonial.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </StyledVideo>{" "}
-      <AboutUs />
+      </StyledVideo>{" "} */}
+      <AboutUs about={false} />
       <br />
       <OurServices />
       <Collab />

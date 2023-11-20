@@ -27,6 +27,7 @@ const StyledLogo = styled(Logo)(({ theme }) => ({
 const CircleContainer = styled("div")(({ theme }) => ({
   bottom: 0,
   overflow: "hidden",
+  width: "100%",
 }));
 
 const Circle = styled("div")(({ theme }) => ({
