@@ -94,12 +94,12 @@ export default function AboutUs(props: any) {
                         key={item?.key}
                         layout="responsive"
                       />
-                      <Typography display={"flex"}>
+                      <Box display={"flex"}>
                         <Typography fontWeight={600}>
-                          {item?.name} &nbsp;{" "}
-                        </Typography>{" "}
-                        | {item?.designation}
-                      </Typography>
+                          {item?.name} &nbsp;
+                        </Typography>
+                        <Typography>| {item?.designation}</Typography>
+                      </Box>
                     </Box>
                   </Grid>
                 );

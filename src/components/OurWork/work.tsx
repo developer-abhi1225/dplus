@@ -21,7 +21,7 @@ export default function Work() {
       <Container>
         <div>{_w?.brandLine}</div>
         <BrandImage src={_w?.brandLogo} alt="" />
-        {_w?.work?.map((item) => {
+        {/* {_w?.work?.map((item) => {
           const _s = typeof item?.image === typeof "string";
           return (
             <WorkContainer key={item?.key}>
@@ -53,7 +53,7 @@ export default function Work() {
               </Box>
             </WorkContainer>
           );
-        })}
+        })} */}
       </Container>
       asd
       <ProjectsContainer>

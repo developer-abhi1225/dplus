@@ -1,95 +1,109 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
 import { works } from "./data";
+import { LausanneFont, montserratFont } from "@/constants/fonts";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function OurWork() {
   const router = useRouter();
+
   return (
-    <>
-      <StyledTitle>
-        <span style={{ color: "#7E7E7E" }}>Refined</span> Designs,
-        <br />
-        surpassing clients
-        <br /> <span style={{ color: "#7E7E7E" }}>expections</span>.
-      </StyledTitle>
-      <StyledWrapper>
-        {works.map((item) => {
-          return (
-            <StyledCardWrapper key={item?.key}>
-              <StyledImage src={item?.thumbnail} alt="work" />
-              <StyledDescriptionWrapper>
-                <StyledCardTitle>{item?.title} | </StyledCardTitle>
-                <StyledServiceType>&nbsp; {item?.subTitle}</StyledServiceType>
-              </StyledDescriptionWrapper>
-            </StyledCardWrapper>
-          );
-        })}
-      </StyledWrapper>
-    </>
+    <GridContainer container rowSpacing={10}>
+      <Grid item xs={12}>
+        <StyledTitle>
+          Refined Designs
+          <br />
+          Surpassing
+          <br />
+          <span>Client's Expectations</span>
+        </StyledTitle>
+      </Grid>
+      <Grid item xs={12}>
+        <Grid
+          container
+          spacing={10}
+          rowSpacing={10}
+          justifyContent="center"
+          alignItems="center"
+        >
+          {works?.map((work) => {
+            return (
+              <Grid
+                onClick={(e) => router.push(`/work/${work?.key}`)}
+                key={work?.key}
+                item
+                xs={12}
+                md={6}
+                lg={6}
+              >
+                <Box borderRadius={2} overflow={"hidden"}>
+                  <Image
+                    src={work?.thumbnail}
+                    alt={work?.title}
+                    layout="responsive"
+                  />
+                </Box>
+                <Box display={"flex"}>
+                  <Typography fontWeight={600}>
+                    {work?.title} &nbsp;{" "}
+                  </Typography>
+                  <Typography>| {work?.subTitle}</Typography>
+                </Box>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Grid>
+    </GridContainer>
   );
 }
-
-const StyledImage = styled("img")(({ theme }) => ({
-  width: "440px",
-  height: "440px",
-  [theme.breakpoints.down("md")]: {
-    width: "300px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "100%",
+const ServiceDescription = styled(Typography)(({ theme }: any) => ({
+  fontWeight: 300,
+  fontSize: 20,
+  [theme.breakpoints.down("lg")]: {
+    fontSize: 12,
   },
 }));
 
-const StyledWrapper = styled(Box)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "space-between",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  alignItems: "center",
-  margin: "0 15%",
-  paddingBottom: "5%",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "row", // Set a fixed width for larger screens
-  },
-  [theme.breakpoints.down("xs")]: {
-    flexDirection: "column", // Set a fixed width for larger screens
-  },
+const ServicesDescContainer = styled(Grid)(({ theme, isActive }: any) => ({
+  background: theme?.palette?.primary.main,
+  color: theme?.palette?.primary.contrastText,
+  padding: 30,
+}));
+
+const GridContainer = styled(Grid)(({ theme, isActive }: any) => ({
+  margin: "0 auto",
+  width: "90%",
+  marginBottom: "20%",
 }));
 
 const StyledTitle = styled(Typography)(({ theme }) => ({
-  color: "#000000",
-  fontSize: "60px",
-  fontWeight: 600,
-  lineHeight: "65px",
-  margin: "5% 5% 0 5%",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "40px",
+  fontSize: 70,
+  fontWeight: 400,
+  lineHeight: 1,
+  fontFamily: LausanneFont.style.fontFamily,
+  "& > span": {
+    color: theme.palette.secondary.contrastText,
+  },
+  [theme.breakpoints.down("xl")]: {
+    fontSize: 50,
     lineHeight: "45px",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: 40,
+    lineHeight: "45px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "5%",
   },
 }));
 
-const StyledDescriptionWrapper = styled(Box)({
-  paddingTop: "10px",
-  display: "flex",
-  alignContent: "center",
-  justifyContent: "center",
-  alignItems: "center",
-});
-
-const StyledCardTitle = styled(Typography)({
-  fontSize: "20px",
-  fontWeight: 700,
-});
-
-const StyledServiceType = styled(Typography)({
-  fontSize: "16px",
-});
-
-const StyledCardWrapper = styled(Box)(({ theme }) => ({
-  marginTop: "5%",
+const StyledDescription = styled(Typography)(({ theme }) => ({
+  fontSize: 25,
+  lineHeight: 1.2,
+  fontFamily: montserratFont.style.fontFamily,
   [theme.breakpoints.down("sm")]: {
-    width: "100%",
+    fontSize: 15,
   },
 }));
