@@ -81,7 +81,7 @@ export default function AboutUs(props: any) {
             >
               {teamsData?.map((item) => {
                 return (
-                  <Grid item lg={3} md={5} sm={12}>
+                  <Grid key={item?.key} item lg={3} md={5} sm={12}>
                     <Box
                       display={"flex"}
                       flexDirection={"column"}
@@ -98,7 +98,9 @@ export default function AboutUs(props: any) {
                         <Typography fontWeight={600}>
                           {item?.name} &nbsp;
                         </Typography>
-                        <Typography>| {item?.designation}</Typography>
+                        <Typography variant="caption">
+                          | {item?.designation}
+                        </Typography>
                       </Box>
                     </Box>
                   </Grid>

@@ -6,7 +6,7 @@ import illustration_swapnali from "../../../public/AboutUs/illustration_swapnali
 
 export const teamsData = [
   {
-    key: "Founder and designer ",
+    key: "Founder and Designer ",
     image: illustration_prachi,
     designation: "Founder & Designer",
     name: "Prachi Langote",
@@ -17,22 +17,22 @@ export const teamsData = [
     designation: "Co-Founder",
     name: "Abhishek Langote",
   },
-  {
-    key: "Social Media Manager",
-    image: illustration_gayathri,
-    designation: "Social Media Manager",
-    name: "Gayathri Kadale",
-  },
-  {
-    key: "Swapnali Chavan",
-    image: illustration_swapnali,
-    designation: "Sales & Executive Manager",
-    name: "Swapnali Chavan",
-  },
-  {
-    key: "Data & Business Analytics",
-    image: illustration_raj,
-    designation: "Data & Business Analytics",
-    name: "Rajvardhan Kadale",
-  },
+  // {
+  //   key: "Social Media Executive",
+  //   image: illustration_gayathri,
+  //   designation: "Social Media Executive",
+  //   name: "Gayathri Kadale",
+  // },
+  // {
+  //   key: "Swapnali Chavan",
+  //   image: illustration_swapnali,
+  //   designation: "Sales Executive",
+  //   name: "Swapnali Chavan",
+  // },
+  // {
+  //   key: "Data & Business Analytics",
+  //   image: illustration_raj,
+  //   designation: "Data & Business Analytics",
+  //   name: "Rajvardhan Kadale",
+  // },
 ];

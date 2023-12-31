@@ -22,9 +22,9 @@ export const menu: IMenu[] = [
     label: "About Us",
     key: "aboutUsMenu",
   },
-  {
-    route: "/contact-us",
-    label: "Contact Us",
-    key: "contactUsMenu",
-  },
+  // {
+  //   route: "/contact-us",
+  //   label: "Contact Us",
+  //   key: "contactUsMenu",
+  // },
 ];

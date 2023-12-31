@@ -1,3 +1,3 @@
 import { PageContainer } from "./pageContainer";
-
-export default { PageContainer };
+const exportObj = { PageContainer };
+export default exportObj;

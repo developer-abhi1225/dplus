@@ -16,7 +16,7 @@ export default function OurWork() {
           <br />
           Surpassing
           <br />
-          <span>Client's Expectations</span>
+          <span>Client&apos;s Expectations</span>
         </StyledTitle>
       </Grid>
       <Grid item xs={12}>
@@ -30,7 +30,7 @@ export default function OurWork() {
           {works?.map((work) => {
             return (
               <Grid
-                onClick={(e) => router.push(`/work/${work?.key}`)}
+                // onClick={(e) => router.push(`/work/${work?.key}`)}
                 key={work?.key}
                 item
                 xs={12}
