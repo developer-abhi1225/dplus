@@ -22,9 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Theme>
         <NavBar />
         <ComponentContainer>
-          <PageContainer>
-            <Component {...pageProps} />
-          </PageContainer>
+          <Component {...pageProps} />
         </ComponentContainer>
         <Footer />
       </Theme>

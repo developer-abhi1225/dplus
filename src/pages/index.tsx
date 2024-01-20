@@ -5,8 +5,9 @@ import Collab from "@/components/Collab";
 
 const StyledVideo = styled("video")({
   width: "100%",
-  // height: `calc(100vh - ${styleConstants.NAV_BAR_HEIGHT}px)`,
-  height: "auto",
+  height: `calc(100vh - ${styleConstants.NAV_BAR_HEIGHT}px)`,
+  objectFit: "cover",
+  // height: "auto",
 });
 
 export default function Home() {
